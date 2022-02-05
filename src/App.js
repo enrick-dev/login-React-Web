@@ -1,7 +1,11 @@
+import { useState } from "react";
 import "./styles.css"
 
 
 function App() {
+  const [email, setEmail] = useState("")
+  const [pswr, setPswr] = useState("")
+
   return (
     <div className="container">
       <div className="containerLogin">
@@ -11,12 +15,20 @@ function App() {
             <span className="loginTitle"> Bem Vindo</span>
 
             <div className="wrapInput">
-              <input className="input" type="email"/>
-              <span className="focusInput" data-placeholder="email"></span>
+              <input className={email !== "" ? "hasValue input" : "input "}               
+              type="email" 
+              value={email} onChange={e => setEmail(e.target.value)} />
+
+              <span className="focusInput" data-placeholder="Email"></span>
             </div>
+
+
             <div className="wrapInput">
-              <input className="input" type="pswr"/>
-              <span className="focusInput" data-placeholder="pswr"></span>
+              <input className={pswr !== "" ? "hasValue input" : "input "}  
+              type="pswr"
+              value={pswr} onChange={e => setPswr(e.target.value)} />
+
+              <span className="focusInput" data-placeholder="Senha"></span>
             </div>
 
             <div className="contentLoginBtn">
